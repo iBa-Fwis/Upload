@@ -1,0 +1,41 @@
+<div class="container row">
+  <div class="col-md-12">
+    <h1>Upload Image</h1>
+  </div>
+</div>
+
+<div class="container row">
+  <div class="col-md-6">
+    <input type="file" (change)="onFileChanged($event)" class="btn btn-primary" accept=".tiff, .pdf, .png, .jpg">
+  </div>
+  <div class="col-md-6">
+    <progressbar [striped]="true" [animate]="true" type="success" [value]="persentData">{{persentData}}</progressbar>
+
+    <hr/>
+    <button class="btn btn-primary" (click)="onUpload()">Upload</button>
+  </div>
+</div>
+<hr/>
+<div class="container row">
+  <div class="col-md-12">
+    <div *ngIf=message>{{message}}</div>
+  </div>
+</div>
+<div class="container row">
+  <div class="col-md-6">
+    <input type="text" class="form-control" id="name" placeholder="image name" [(ngModel)]="imageName"
+           name="name"/>
+  </div>
+  <div class="col-md-6">
+    <button class="btn btn-primary" (click)="getImage()">Get Image</button>
+  </div>
+</div>
+
+<div class="container row">
+  <div class="col-md-12">
+    <div *ngIf=retrievedImage>
+      <img [src]="retrievedImage">
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
